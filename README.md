@@ -1,5 +1,5 @@
 # DockerHub
-Repository of Docker image development
+Stage Repository of Docker image development
 
 Develope Channels
 https://hub.docker.com/repository/docker/rockeywen/appinspect
