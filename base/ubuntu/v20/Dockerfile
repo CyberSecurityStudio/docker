@@ -1,3 +1,6 @@
 FROM ubuntu:latest
 
 RUN apt update -y && apt upgrade -y
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
+RUN apt install -y tzdata
