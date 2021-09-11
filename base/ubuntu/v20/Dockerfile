@@ -8,3 +8,5 @@ RUN apt install -y tzdata
 RUN apt install -y software-properties-common
 RUN add-apt-repository ppa:remnux/stable
 RUN apt-get update
+
+RUN apt install -y git wget
