@@ -7,4 +7,4 @@ RUN dnf install -y 'dnf-command(config-manager)'
 RUN dnf config-manager --add-repo /etc/yum.repos.d/CentOS-Linux-PowerTools.repo
 RUN dnf config-manager --set-enabled powertools
 RUN dnf upgrade -y
-RUN yum install -y gcc make gcc-c++ wget git 
+RUN yum install -y gcc make gcc-c++ wget git automake autoconf libtool
