@@ -10,15 +10,9 @@ RUN dnf upgrade -y
 
 RUN yum install -y wget vim
 
-# RUN wget -O splunk-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm 'https://d7wz6hmoaavd0.cloudfront.net/products/splunk/releases/8.2.2.1/linux/splunk-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm'
-# RUN wget -O splunk-8.2.2.1-ae6821b7c64b-Linux-x86_64.tgz 'https://d7wz6hmoaavd0.cloudfront.net/products/splunk/releases/8.2.2.1/linux/splunk-8.2.2.1-ae6821b7c64b-Linux-x86_64.tgz' 
-# RUN wget -O splunk-8.2.2.1-ae6821b7c64b-linux-2.6-amd64.deb 'https://d7wz6hmoaavd0.cloudfront.net/products/splunk/releases/8.2.2.1/linux/splunk-8.2.2.1-ae6821b7c64b-linux-2.6-amd64.deb'
-
-RUN cd && wget -O splunk-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm 'https://d7wz6hmoaavd0.cloudfront.net/products/splunk/releases/8.2.2.1/linux/splunk-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm' && rpm -Uvh splunk-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm && rm -f *
-
-# RUN cd && wget -O splunk-8.2.2.1-ae6821b7c64b-Linux-x86_64.tgz 'https://d7wz6hmoaavd0.cloudfront.net/products/splunk/releases/8.2.2.1/linux/splunk-8.2.2.1-ae6821b7c64b-Linux-x86_64.tgz' && tar -zxvf splunk-8.2.2.1-ae6821b7c64b-Linux-x86_64.tgz
-# RUN cd && tar -zxvf splunk-8.2.2.1-ae6821b7c64b-Linux-x86_64.tgz
-RUN  echo -e  "\nOPTIMISTIC_ABOUT_FILE_LOCKING=1" >> /opt/splunk/etc/splunk-launch.conf
+RUN cd && wget -O splunk-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm https://d7wz6hmoaavd0.cloudfront.net/products/splunk/releases/8.2.2.1/linux/splunk-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm && rpm -Uvh splunk-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm && rm -f *
+RUN echo -e  "\nOPTIMISTIC_ABOUT_FILE_LOCKING=1" >> /opt/splunk/etc/splunk-launch.conf
 
 # Export the common network ports
-EXPOSE 8000/tcp 8080/tcp 8089/tcp 8191/tcp 9997/tcp 9998/tcp 
+EXPOSE 8000 8080 8089 8191 9997 9998 
+EXPOSE 514 1514 2514 6514
