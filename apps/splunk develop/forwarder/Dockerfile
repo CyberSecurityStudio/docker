@@ -11,5 +11,5 @@ RUN dnf upgrade -y
 RUN yum install wget vim -y
 RUN cd && wget -O splunkforwarder-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm https://d7wz6hmoaavd0.cloudfront.net/products/universalforwarder/releases/8.2.2.1/linux/splunkforwarder-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm && rpm -Uvh splunkforwarder-8.2.2.1-ae6821b7c64b-linux-2.6-x86_64.rpm && rm -f *
 
-USER root
-WORKDIR /opt/splunkforwder
+ENV PATH="/opt/splunkforwarder/bin:${PATH}"
+WORKDIR /opt/splunkforwarder
