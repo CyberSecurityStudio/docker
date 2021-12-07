@@ -1,22 +1,18 @@
 #
 # Declare the default image sources
 #
-FROM centos:latest
+FROM alpine:latest
 #
 # Initial configurations of the docker image
 #
-RUN yum update -y
-RUN dnf install -y http://repo.okay.com.mx/centos/8/x86_64/release/okay-release-1-5.el8.noarch.rpm
-RUN dnf install -y epel-release
-RUN dnf install -y 'dnf-command(config-manager)'
-RUN dnf config-manager --add-repo /etc/yum.repos.d/CentOS-Linux-PowerTools.repo
-RUN dnf config-manager --set-enabled powertools
-RUN dnf upgrade -y
+RUN apk update && apk upgrade
 
 #
 # Install the required software components from source repositories
 #
-RUN yum install -y gcc make gcc-c++ wget git python39 python39-pip python39-devel python3-devel
+RUN apk add python3 python3-dev py3-pip gcc libstdc++ zlib zlib-dev libjpeg libmagic
+RUN apk --update add libxml2-dev libxslt-dev libffi-dev gcc musl-dev libgcc openssl-dev curl
+RUN apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev
 RUN pip3 install pip --upgrade
 
 #
