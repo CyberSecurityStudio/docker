@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.15
 
 RUN apk update && apk upgrade
 RUN apk add python3 python3-dev py3-pip gcc libstdc++ zlib zlib-dev libjpeg libmagic
