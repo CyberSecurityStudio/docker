@@ -1,7 +1,7 @@
 #
 # Declare the default image sources
 #
-FROM alpine:latest
+FROM alpine:3.15
 #
 # Initial configurations of the docker image
 #
