@@ -8,6 +8,7 @@ FROM centos:latest
 #
 RUN dnf --disablerepo '*' --enablerepo extras swap centos-linux-repos centos-stream-repos -y
 RUN dnf distro-sync -y
+RUN rm -f /etc/yum.repos.d/okay.repo
 
 #
 # Initial configurations of the docker image
