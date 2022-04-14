@@ -4,6 +4,12 @@
 FROM centos:latest
 
 #
+#  Convert from CentOS 8 to Centos Stream
+#
+RUN dnf --disablerepo '*' --enablerepo extras swap centos-linux-repos centos-stream-repos -y
+RUN dnf distro-sync -y
+
+#
 # Initial configurations of the docker image
 #
 RUN yum update -y
